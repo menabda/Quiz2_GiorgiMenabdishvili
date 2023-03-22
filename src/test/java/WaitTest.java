@@ -19,8 +19,9 @@ public class WaitTest {
         driver.manage().window().maximize();
     }
     @Test
-    public void Test2() throws InterruptedException {
+    public void Test2()  {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+        wait.pollingEvery(Duration.ofMillis(100));
         driver.get("https://demoqa.com/progress-bar");
         driver.findElement(By.id("startStopButton")).click();
         WebElement percentage = driver.findElement(By.xpath("//*[@role='progressbar']"));
